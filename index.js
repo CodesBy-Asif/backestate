@@ -9,7 +9,7 @@ import authRouter from "./routes/auth.routes.js";
 import userRouter from "./routes/user.route.js";
 import listingRouter from "./routes/listing.route.js";
 
-dotenv.config({ path: path.resolve(".env") });
+dotenv.config();
 
 const app = express();
 
@@ -27,11 +27,7 @@ app.use(cors({
   credentials: true,
 }));
 
-// Handle preflight requests globally
-app.options("*", cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
+
 
 // Middleware
 app.use(express.json());
